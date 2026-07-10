@@ -140,6 +140,94 @@ main ul, main ol {
   color: var(--color-text);
 }
 
+/* projects page */
+.project-card {
+  background-color: #fff;
+  border: 1px solid var(--color-accent-light);
+  border-radius: 6px;
+  padding: 1rem;
+  display: flex;
+  flex-direction: column;
+}
+
+.project-img-placeholder {
+  width: 100%;
+  height: 140px;
+  background-color: var(--color-accent-light);
+  border: 2px dashed var(--color-accent);
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  margin-bottom: 0.75rem;
+}
+
+.project-tag {
+  color: var(--color-accent);
+  font-size: 0.85rem;
+  font-weight: bold;
+  margin-bottom: 0.5rem;
+}
+
+.project-card p:not(.project-tag) {
+  margin-bottom: 0.75rem;
+  flex-grow: 1;
+}
+
+.project-link {
+  align-self: flex-start;
+  background-color: var(--color-accent);
+  color: var(--color-nav-text);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+}
+
+.project-link:hover {
+  background-color: var(--color-accent-light);
+  color: var(--color-text);
+}
+
+/* contact page */
+.form-group {
+  margin-bottom: 1rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.3rem;
+  font-weight: bold;
+}
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+  width: 100%;
+  padding: 0.5rem;
+  border: 1px solid var(--color-accent-light);
+  border-radius: 4px;
+  font-family: var(--font-body);
+  font-size: 1rem;
+}
+
+.contact-form button {
+  border: none;
+  cursor: pointer;
+  font-size: 1rem;
+}
+
+.social-list {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  margin-top: 0.5rem;
+}
+
+.social-list a {
+  text-decoration: none;
+}
+
 /* footer */
 footer {
   background-color: var(--color-nav-bg);
@@ -163,4 +251,39 @@ footer {
 
 .footer-links a:hover {
   color: var(--color-accent-light);
+}
+
+/* mobile styles */
+@media (max-width: 600px) {
+  nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .nav-links {
+    flex-wrap: wrap;
+    gap: 0.75rem 1rem;
+  }
+
+  .hero {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .photo-placeholder {
+    width: 160px;
+    height: 160px;
+    margin: 0 auto;
+  }
+
+  .footer-links {
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+
+  .social-list {
+    flex-direction: column;
+    gap: 0.75rem;
+  }
 }

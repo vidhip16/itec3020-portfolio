@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Vidhi Patel - Projects</title>
+  <link rel="stylesheet" href="css/style.css">
+
+  <!-- internal CSS just for this page's grid layout, keeping it here since it's page-specific -->
+  <style>
+    .project-grid {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+      margin-top: 1.5rem;
+    }
+
+    @media (max-width: 600px) {
+      .project-grid {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <nav>
+      <div class="logo">Vidhi Patel</div>
+      <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="resume.html">Resume</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="blog.html">Blog</a></li>
+        <li><a href="contact.html">Contact</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main>
+    <section class="projects-intro">
+      <h1>Projects</h1>
+      <p>
+        A few things I've built so far, mostly for classes. Going to keep adding to this as I
+        finish more.
+      </p>
+    </section>
+
+    <!-- keeping every card the same structure (img, title, tag, description, link)
+         since I'll need to filter these by title/category later -->
+    <div class="project-grid">
+
+      <article class="project-card" data-category="web">
+        <div class="project-img-placeholder">
+          <p>image coming soon</p>
+        </div>
+        <h3>
+          Portfolio Website
+          <span class="featured-badge" style="background-color: var(--color-accent); color: white; padding: 0.15rem 0.5rem; border-radius: 3px; font-size: 0.7rem; margin-left: 0.4rem;">Featured</span>
+        </h3>
+        <p class="project-tag">Web Dev</p>
+        <p>
+          This site! Built with plain HTML, CSS, and JavaScript for my ITEC 3020 class.
+          Still very much a work in progress.
+        </p>
+        <a href="#" class="project-link">View Project</a>
+      </article>
+
+      <article class="project-card" data-category="database">
+        <div class="project-img-placeholder">
+          <p>image coming soon</p>
+        </div>
+        <h3>Library Management System</h3>
+        <p class="project-tag">Database</p>
+        <p>
+          A course project for tracking book checkouts using a MySQL database and some basic
+          SQL queries for adding, searching, and returning books.
+        </p>
+        <a href="#" class="project-link">View Project</a>
+      </article>
+
+      <article class="project-card" data-category="data">
+        <div class="project-img-placeholder">
+          <p>image coming soon</p>
+        </div>
+        <h3>Data Analysis with Python</h3>
+        <p class="project-tag">Python</p>
+        <p>
+          Used pandas to clean up a messy dataset and pull out some trends, then charted the
+          results. First real project where I felt comfortable with Python.
+        </p>
+        <a href="#" class="project-link">View Project</a>
+      </article>
+
+      <article class="project-card" data-category="group">
+        <div class="project-img-placeholder">
+          <p>image coming soon</p>
+        </div>
+        <h3>Group App Prototype</h3>
+        <p class="project-tag">Team Project</p>
+        <p>
+          Worked with a group on a mobile app mockup for a class project - I mostly handled
+          the UI screens and helped write up our documentation.
+        </p>
+        <a href="#" class="project-link">View Project</a>
+      </article>
+
+    </div>
+  </main>
+
+  <footer>
+    <p>&copy; 2026 Vidhi Patel. All rights reserved.</p>
+    <ul class="footer-links">
+      <li><a href="index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="resume.html">Resume</a></li>
+      <li><a href="projects.html">Projects</a></li>
+      <li><a href="blog.html">Blog</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </footer>
+
+</body>
+</html>
