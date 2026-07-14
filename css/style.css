@@ -8,11 +8,23 @@
   --color-accent-light: #e8c4a0;
   --color-nav-bg: #2b2b2b;
   --color-nav-text: #faf6f0;
+  --color-card-bg: #ffffff;
 
   --font-heading: Georgia, "Times New Roman", serif;
   --font-body: Arial, Helvetica, sans-serif;
 
   --max-width: 900px;
+}
+
+/* dark theme overrides - toggled by js/theme.js setting data-theme on <body> */
+[data-theme="dark"] {
+  --color-bg: #1a1a1a;
+  --color-text: #f0f0f0;
+  --color-accent: #e8935a;
+  --color-accent-light: #4a3626;
+  --color-nav-bg: #000000;
+  --color-nav-text: #f0f0f0;
+  --color-card-bg: #2a2a2a;
 }
 
 /* quick reset, don't want default browser margins messing up spacing */
@@ -27,6 +39,7 @@ body {
   background-color: var(--color-bg);
   color: var(--color-text);
   line-height: 1.6;
+  transition: background-color 0.2s ease, color 0.2s ease; /* smooths out the theme switch */
 }
 
 h1, h2, h3 {
@@ -58,6 +71,12 @@ nav {
   font-size: 1.25rem;
 }
 
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1.25rem;
+}
+
 .nav-links {
   list-style: none;
   display: flex;
@@ -71,6 +90,23 @@ nav {
 
 .nav-links a:hover {
   color: var(--color-accent-light);
+}
+
+/* theme toggle button, lives in the nav */
+#theme-toggle {
+  background-color: transparent;
+  border: 1px solid var(--color-nav-text);
+  color: var(--color-nav-text);
+  padding: 0.4rem 0.8rem;
+  border-radius: 4px;
+  font-size: 0.8rem;
+  cursor: pointer;
+}
+
+#theme-toggle:hover {
+  background-color: var(--color-accent-light);
+  color: var(--color-text);
+  border-color: var(--color-accent-light);
 }
 
 /* everything below the nav */
@@ -142,7 +178,7 @@ main ul, main ol {
 
 /* projects page */
 .project-card {
-  background-color: #fff;
+  background-color: var(--color-card-bg);
   border: 1px solid var(--color-accent-light);
   border-radius: 6px;
   padding: 1rem;
@@ -256,6 +292,12 @@ footer {
 /* mobile styles */
 @media (max-width: 600px) {
   nav {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.75rem;
+  }
+
+  .nav-right {
     flex-direction: column;
     align-items: flex-start;
     gap: 0.75rem;
