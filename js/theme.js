@@ -1,9 +1,14 @@
 // theme switcher - light/dark mode toggle that remembers your choice
 // starter code from the assignment PDF, filled in the TODOs below
 
-document.addEventListener("DOMContentLoaded", function () {
+// the toggle button now lives in components/header.html (Part 2), which gets fetched in
+// dynamically - so this had to become its own named function instead of just sitting inside
+// DOMContentLoaded, since js/components.js needs to call it again once the header actually
+// shows up in the DOM
+function setupThemeToggle() {
 
   const toggleBtn = document.getElementById("theme-toggle");
+  if (!toggleBtn) return; // header hasn't loaded in yet, bail out for now
 
   function applyTheme(theme) {
     document.body.setAttribute("data-theme", theme);
@@ -29,4 +34,8 @@ document.addEventListener("DOMContentLoaded", function () {
 
   loadSavedTheme(); // Run on every page load
 
-});
+}
+
+// this first call does basically nothing right now since the header (and the button) hasn't
+// fetched in yet - js/components.js calls setupThemeToggle() again once it has
+document.addEventListener("DOMContentLoaded", setupThemeToggle);
