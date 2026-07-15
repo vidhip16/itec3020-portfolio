@@ -1,0 +1,18 @@
+[
+  {
+    "id": 1,
+    "title": "Starting This Portfolio Project",
+    "date": "2026-07-06",
+    "category": "Update",
+    "summary": "First post on here - mostly just testing that the blog rendering actually works before I write anything real.",
+    "content": "This is placeholder content for now. Once I get to Phase 2 Part 6 I'll swap these out for actual dev-log posts about building the theme switcher, the dynamic header/footer, and everything else that went into this project."
+  },
+  {
+    "id": 2,
+    "title": "Second Test Post",
+    "date": "2026-07-10",
+    "category": "Update",
+    "summary": "Adding a second post just to make sure things like sorting work once I have more than one.",
+    "content": "Another placeholder post. Real dev-log entries are coming later in the project once the rest of the JS features are built out."
+  }
+]
