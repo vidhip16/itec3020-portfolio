@@ -14,10 +14,13 @@
     <section class="blog-intro">
       <h1>Blog</h1>
       <p>Dev-log posts about building this site - just testing that the rendering works for now, real posts coming soon.</p>
+      <input type="text" id="filter-input" class="filter-input" placeholder="Search posts...">
     </section>
 
     <!-- posts get rendered in here by js/blog.js -->
     <div id="blog-list"></div>
+
+    <p id="no-results" class="no-results" style="display: none;">No results found.</p>
   </main>
 
   <div id="footer-placeholder"></div>
@@ -25,6 +28,7 @@
   <script src="js/theme.js"></script>
   <script src="js/components.js"></script>
   <script src="js/blog.js"></script>
+  <script src="js/filter.js"></script>
 
 </body>
 </html>
