@@ -1,18 +1,34 @@
 [
   {
     "id": 1,
-    "title": "Starting This Portfolio Project",
-    "date": "2026-07-06",
-    "category": "Update",
-    "summary": "First post on here - mostly just testing that the blog rendering actually works before I write anything real.",
-    "content": "This is placeholder content for now. Once I get to Phase 2 Part 6 I'll swap these out for actual dev-log posts about building the theme switcher, the dynamic header/footer, and everything else that went into this project."
+    "title": "Building the Theme Switcher",
+    "date": "2026-07-14",
+    "category": "Dev Log",
+    "summary": "How I got a light/dark toggle working that actually remembers your choice across pages.",
+    "content": "This was the first real bit of JavaScript I added to the site. The idea is simple, it's a button in the nav flips the whole site between light and dark. Clicking the toggle sets a data-theme attribute on the body, and my CSS does the actual color swapping through custom properties. I already had all my colors as variables in :root, so the dark theme is just a second block that overrides those same variables under [data-theme='dark']. To make the choice stick I save it to localStorage and read it back on every page load, falling back to light if nothing's saved. The part that tripped me up came later. Once I moved the nav into a header that loads dynamically, the toggle button didn't exist yet when my script first ran, so clicking it did nothing. I had to pull the setup into its own named function and call it again after the header finishes loading. Lesson learned, you can't wire up a button that isn't in the DOM yet."
   },
   {
     "id": 2,
-    "title": "Second Test Post",
-    "date": "2026-07-10",
-    "category": "Update",
-    "summary": "Adding a second post just to make sure things like sorting work once I have more than one.",
-    "content": "Another placeholder post. Real dev-log entries are coming later in the project once the rest of the JS features are built out."
+    "title": "Loading the Header and Footer Dynamically",
+    "date": "2026-07-16",
+    "category": "Dev Log",
+    "summary": "Getting rid of six copies of the same nav and footer using fetch().",
+    "content": "Before this I was copy-pasting the exact same nav and footer into all six pages, which meant every time I changed one link I had to change it in six spots. So I moved the markup into components/header.html and components/footer.html and wrote a little loadComponent function that fetches each file and drops it into a placeholder div with innerHTML. That being said, I ran into two issues. First, fetch() doesn't work if you just open the HTML file directly in the browser - it needs an actual server, so I had to run python3 -m http.server to test it. Second, my theme toggle broke, because the button now gets loaded in after the rest of the page, so I had to re-run the theme setup right after the header injects. Once I sorted those two out it felt really clean - the nav lives in one file now and every page just pulls it in."
+  },
+  {
+    "id": 3,
+    "title": "Rendering the Blog from a JSON File",
+    "date": "2026-07-18",
+    "category": "Dev Log",
+    "summary": "Pulling posts out of a JSON file and building the cards in JavaScript instead of hardcoding them.",
+    "content": "This post is coming out of a JSON file. Instead of writing each blog entry in HTML, I keep them all in data/posts.json and let js/blog.js fetch that file and build a card for each one. Every post has a title, date, category, summary, and content, and the script loops over them and creates the markup on the fly, including a Read More button that toggles the full content. I added a couple of extra touches. The posts get sorted newest-to-oldest by subtracting their Date objects, and the most recent one gets a Latest Post badge. The annoying bug was the date. My dates are stored like 2026-07-18, and when I formatted them they kept showing up one day early. Turns out a plain date string gets parsed as UTC midnight, and since my timezone is behind UTC it rolled back a day. Passing timeZone UTC into toLocaleDateString fixed it. That one took me a while to even notice was happening."
+  },
+  {
+    "id": 4,
+    "title": "Client-Side Form Validation",
+    "date": "2026-07-20",
+    "category": "Dev Log",
+    "summary": "Making the contact form check what you typed before it pretends to send anything.",
+    "content": "The contact form actually checks your input now before doing anything. When you hit submit I stop the default form submission and validate three things: the name can't be empty, the email has to match a basic email pattern, and the message has to be at least 20 characters. If something's off I show a small red error message right under that field, and it clears the moment you start fixing it. I set that up with an input event listener on each field. If everything passes, I swap the whole form out for a green success message, since I don't have a real backend to send to yet. The email validation was the trickiest part. I didn't want anything overcomplicated, just a check that there's some text, an @, and a domain with a dot after it. What I like about this one is how much more finished the form feels now that it talks back to you instead of silently doing nothing when you click send."
   }
 ]
