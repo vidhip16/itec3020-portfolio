@@ -127,18 +127,19 @@ main {
 .photo-placeholder {
   width: 220px;
   height: 220px;
-  background-color: var(--color-accent-light);
-  border: 2px dashed var(--color-accent);
+  border: 3px solid var(--color-accent);
   border-radius: 50%;
+  overflow: hidden; /* clip the photo to the circle */
   display: flex;
   align-items: center;
   justify-content: center;
-  text-align: center;
   flex-shrink: 0;
 }
 
-.photo-placeholder img,
-img.photo-placeholder {
+/* fill the circle without squishing - cover crops instead of stretching */
+.profile-photo {
+  width: 100%;
+  height: 100%;
   object-fit: cover;
 }
 
