@@ -137,6 +137,11 @@ main {
   flex-shrink: 0;
 }
 
+.photo-placeholder img,
+img.photo-placeholder {
+  object-fit: cover;
+}
+
 .intro-text {
   flex: 1;
   min-width: 250px;
