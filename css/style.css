@@ -40,6 +40,10 @@ body {
   color: var(--color-text);
   line-height: 1.6;
   transition: background-color 0.2s ease, color 0.2s ease; /* smooths out the theme switch */
+  /* full-height flex column so the footer gets pushed to the bottom even on short pages */
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 
 h1, h2, h3 {
@@ -51,7 +55,13 @@ a {
   color: var(--color-accent);
 }
 
-/* nav bar */
+/* nav bar - sticky so it stays at the top while you scroll */
+#header-placeholder {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
 header {
   background-color: var(--color-nav-bg);
 }
@@ -62,13 +72,14 @@ nav {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 1rem 1.5rem;
+  padding: 0.5rem 1.5rem; /* slimmed down so the bar isn't so tall */
 }
 
 .logo {
   color: var(--color-nav-text);
   font-family: var(--font-heading);
   font-size: 1.25rem;
+  text-decoration: none; /* it's a link now, drop the underline */
 }
 
 .nav-right {
@@ -114,6 +125,8 @@ main {
   max-width: var(--max-width);
   margin: 0 auto;
   padding: 2rem 1.5rem;
+  width: 100%;
+  flex: 1 0 auto; /* grow to fill leftover space so the footer stays at the bottom */
 }
 
 /* home page hero */
