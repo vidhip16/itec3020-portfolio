@@ -1,7 +1,7 @@
 // theme switcher - light/dark mode toggle that remembers your choice
 // starter code from the assignment PDF, filled in the TODOs below
 
-// the toggle button now lives in components/header.html (Part 2), which gets fetched in
+// the toggle button now lives in components/header.html, which gets fetched in
 // dynamically - so this had to become its own named function instead of just sitting inside
 // DOMContentLoaded, since js/components.js needs to call it again once the header actually
 // shows up in the DOM
