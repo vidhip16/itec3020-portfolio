@@ -13,9 +13,21 @@ function loadComponent(selector, filePath) {
       // gotta set it up again once it's actually in the DOM
       if (selector === "#header-placeholder") {
         setupThemeToggle();
+        highlightCurrentPage();
       }
     })
     .catch(error => console.error(error));
+}
+
+// mark the nav link for whatever page we're currently on so it stands out
+function highlightCurrentPage() {
+  // grab just the file name from the URL, defaulting to index.html at the site root
+  const currentPage = window.location.pathname.split("/").pop() || "index.html";
+  document.querySelectorAll(".nav-links a").forEach(link => {
+    if (link.getAttribute("href") === currentPage) {
+      link.classList.add("active");
+    }
+  });
 }
 
 document.addEventListener("DOMContentLoaded", function () {
