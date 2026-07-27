@@ -129,6 +129,13 @@ main {
   flex: 1 0 auto; /* grow to fill leftover space so the footer stays at the bottom */
 }
 
+/* home page - vertically center the hero in the leftover space between header and footer */
+.home {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
 /* home page hero */
 .hero {
   display: flex;
